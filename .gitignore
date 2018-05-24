@@ -1,0 +1,5 @@
+.vscode
+dm
+members.json
+node_modules
+slack-history-export.log

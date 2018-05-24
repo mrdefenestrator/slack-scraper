@@ -1,0 +1,27 @@
+{
+  "name": "slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "export.js",
+  "scripts": {
+    "export": "npm install; node export",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^2.15.1",
+    "mancy": "^3.1.0",
+    "oh-my-terminal": "^1.1.2",
+    "pryjs": "^1.0.3",
+    "request": "^2.86.0",
+    "request-promise-native": "^1.0.5",
+    "slack-history-export": "^1.1.1",
+    "vantage": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
