@@ -41,9 +41,9 @@ async function getMembers(token, outputPath) {
  */
 function slackDmExport(token, outputPath, memberName) {
   return new Promise((resolve, reject) => {
-    const memberPath = path.join(outputPath, EXPORT_PATH, memberName);
+    const historyPath = path.join(outputPath, EXPORT_PATH, memberName);
 
-    if (fs.existsSync(memberPath)) {
+    if (fs.existsSync(historyPath)) {
       resolve(false);
       return;
     }
@@ -54,7 +54,7 @@ function slackDmExport(token, outputPath, memberName) {
         '--type', 'dm',
         '--username', memberName,
         '--token', token,
-        '--filepath', memberPath,
+        '--filepath', historyPath,
       ],
     );
 
@@ -72,6 +72,15 @@ function slackDmExport(token, outputPath, memberName) {
  * Gets the member's names and downloads the dm history of each
  */
 async function exportSlack(token, outputPath) {
+  if (!fs.existsSync(outputPath)) {
+    fs.mkdirSync(outputPath);
+  }
+
+  const dmPath = path.join(outputPath, EXPORT_PATH);
+  if (!fs.existsSync(dmPath)) {
+    fs.mkdirSync(dmPath);
+  }
+
   const members = await getMembers(token, outputPath);
   const memberNames = members.map(member => member.name);
 
