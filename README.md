@@ -4,5 +4,6 @@ Saves all one-on-one conversation histories from your slack account.  Note that 
 
 ## Usage
 
+```bash
 ./export.sh --token <your-legacy-api-token> --path <your-export-path>
-
+```
